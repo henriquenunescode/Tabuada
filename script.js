@@ -3,8 +3,8 @@ const numero = document.querySelector('#numero')
 const selectTabuada = document.querySelector('#selectTabuada')
 const button = document.querySelector('#btnGerar')
 
-// Aguarda o clique no botão para executar a função
-button.addEventListener("click", () => {
+// Função que gera a tabuada (usada tanto no clique quanto no Enter)
+function gerarTabuada() {
 
     // Converte o valor do campo de texto em número
     let n = Number(numero.value)
@@ -13,6 +13,13 @@ button.addEventListener("click", () => {
     if (numero.value.length == 0) {
         selectTabuada.setAttribute('size', 1) // Reduz o select para mostrar só 1 linha
         selectTabuada.innerHTML = "<option>Campo Vazio!</option>" // Exibe mensagem de aviso
+        return  // Interrompe a execução aqui, sem gerar a tabuada
+    }
+
+    // Verifica se o número está fora do intervalo permitido
+    if (n < -99 || n > 99) {
+        selectTabuada.setAttribute('size', 1) // Reduz o select para mostrar só 1 linha
+        selectTabuada.innerHTML = "<option>-99 < x < 99</option>" // Exibe mensagem de aviso
         return  // Interrompe a execução aqui, sem gerar a tabuada
     }
 
@@ -43,4 +50,14 @@ button.addEventListener("click", () => {
 
     // Retorna o foco ao campo para o usuário digitar outro número
     numero.focus()
+}
+
+// Aguarda o clique no botão para executar a função
+button.addEventListener("click", gerarTabuada)
+
+// Aguarda o Enter no campo de texto para executar a função
+numero.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter") {
+        gerarTabuada()
+    }
 })
