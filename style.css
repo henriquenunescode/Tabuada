@@ -12,7 +12,7 @@ h1 {
 
 section {
     background: rgb(243, 243, 243);
-    width: 200px;
+    width: 210px;
     padding: 30px;
     border-radius: 20px;
     margin: auto;
@@ -26,7 +26,7 @@ section {
 
 #selectTabuada {
     background: rgb(243, 243, 243);
-    width: 170px;
+    width: 200px;
     border-radius: 10px;
     margin-top: 10px;
     text-align: center;
@@ -46,14 +46,8 @@ section {
     cursor: pointer;
 }
 
-/* #div1 {
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-} */
-
-#div2 {
-    margin-top: 20px;
-    font-style: italic;
-    font-weight: lighter;
+#div1, #div2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #div2 p {
